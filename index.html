@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>CV filza</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #ffd0d0;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: #ff7c7c;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: rgb(0, 0, 0);
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: #ffa6a6;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #ff7c7c;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.5s;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TENTANG */
+.tentang {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.foto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff7c7c;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    padding-right: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="#tentang">Tentang</a>
+    <a href="#data">Data Diri</a>
+    <a href="#pendidikan">Pendidikan</a>
+    <a href="#hobi">Hobi</a>
+    <a href="#keahlian">Keahlian</a>
+    <a href="#kontak">Kontak</a>
+</div>
+
+<div class="container">
+
+<h1>Filza Bahrani Az Zulfa</h1>
+
+<!-- TENTANG -->
+<div id="tentang" class="card tentang">
+    <img src="foto (2).jpeg" class="foto">
+    <div>
+        <h2>Tentang</h2>
+        <p>
+            Saya adalah siswa SMKN 1 Bawang jurusan PPLG yang memiliki individu ceria, rasa tanggung jawab, disiplin serta semangat belajar tinggi. Saya selalu berusaha untuk memberikan hasil yang terbaik dalam berpendapat maupun solusi dalam tim.
+        </p>
+    </div>
+</div>
+
+<div class="grid">
+
+<!-- DATA DIRI -->
+<div id="data" class="card">
+    <h2>Data Diri</h2>
+    <ul>
+        <li><b>Nama Lengkap:</b> Filza Bahrani Az Zulfa</li>
+        <li><b>Tempat, Tanggal Lahir:</b> Banjarnegara, 15 Maret 2010</li>
+        <li><b>Jenis Kelamin:</b> Perempuan</li>
+        <li><b>Agama:</b> Islam</li>
+    </ul>
+</div>
+
+<!-- PENDIDIKAN -->
+<div id="pendidikan" class="card">
+    <h2>Pendidikan</h2>
+    <ul>
+        <li>SMKN 1 Bawang (2025 - Sekarang)</li>
+        <li>SMPN 1 Bawang (2022 - 2025)</li>
+        <li>SDN 1 Bawang (2016 - 2022)</li>
+        <li>PAUD Sasandra (2013 - 2016)</li>
+    </ul>
+</div>
+
+<!-- HOBI -->
+<div id="hobi" class="card">
+    <h2>Hobi</h2>
+    <ul>
+       <p>Saya suka mencoba hal-hal baru karena bikin hidup jadi lebih seru dan nambah pengalaman. Selain itu, saya juga hobi memasak, soalnya bisa sekalian belajar dan bikin sesuatu yang enak. Di waktu luang, saya sering main bareng teman karena selain menyenangkan, juga bisa bikin hubungan jadi makin dekat.
+       </p>
+    </ul>
+</div>
+
+<!-- KEAHLIAN -->
+<div id="keahlian" class="card">
+    <h2>Keahlian</h2>
+
+    <h4>Hard Skill</h4>
+    <ul>
+        <li><b>Design Grafis (Canva)</b> : Mampu membuat desain visual seperti poster dan presentasi</li>
+        <li><b>HTML & CSS </b>: Mampu membuat dan mendesain website sederhana</li>
+        <li><b>Microsoft Word</b> : Mengolah dokumen dengan rapi</li>
+    </ul>
+
+    <h4>Soft Skill</h4>
+    <ul>
+        <li><b>Kerja Sama Tim</b> : Mampu berkerja dalam tim, berkontribusi aktif, dan mendukung pencapaian tujuan bersama</li>
+        <li><b>Menejemen Waktu & Disiplin</b> : Terbiasa dengan mengatur waktu dengan baik serta bertanggung jawab</li>
+    </ul>
+</div>
+
+<!-- PORTOFOLIO -->
+<div class="card">
+    <h2>Portofolio</h2>
+    <ul>
+        
+            <li><a href="https://www.figma.com/design/zkK54DyW1rCXK58vVbznvd/Untitled?t=ek1YzWKgsCoO4BdN-1" target="_blank" >Project UI/UX Figma |</a><br></li>           
+            <li><a href=" https://www.figma.com/design/KS1WtupMHjlz2JGLabBYFh/Untitled?node-id=0-1&t=ek1YzWKgsCoO4BdN-1" target="_blank">Project UI/UX Figma ||</a><br></li>
+            <li><a href="https://www.figma.com/design/9FUH3x3O8alviEYIyp5kpl/Untitled?t=ek1YzWKgsCoO4BdN-1" target="_blank">project UI/UX Figma |||</a></li>
+        
+    </ul>
+</div>
+
+<!-- KONTAK -->
+<div id="kontak" class="card">
+    <h2>Kontak</h2>
+    <ul>
+        <li><b>Email:</b> filzabahraniazzulfa@gmail.com</li>
+        <li><b>Alamat:</b> Banjarnegara, Jawa Tengah</li>
+        <li><b>Sosmed:</b><br>
+             Tiktok : <a href="https://www.tiktok.com/@_raniaa?_r=1&_t=ZS-95AWlGEeSPo" class="btn">@_Raniaa</a><br>
+             Instagram : <a href="https://www.instagram.com/_bahrania?igsh=bHFpMmlmMmpzbzdz" class="btn">_bahrania</a><br>
+             Github : <a href="https://github.com/20361-oss" class="btn">Bahrani</a>
+    </ul>
+</div>
+
+</div>
+
+</div>
+
+<!-- ANIMASI SCROLL -->
+<script>
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+        const pos = card.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            card.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
