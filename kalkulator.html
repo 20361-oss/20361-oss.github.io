@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulator Filzaaa</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffe4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container { width: 300px; }
+
+.page { display: none; }
+.page.active { display: block; }
+
+.calculator, .history-page {
+    background: #fff;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.display {
+    background: #f5f7fa;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: right;
+    font-size: 26px;
+    margin-bottom: 10px;
+    min-height: 50px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    background: #f0f0f0;
+}
+
+button:hover { transform: scale(1.05); }
+
+.operator { background: #cde7ff; }
+.equal { background: #89c2ff; }
+.clear { background: #ffb6c1; }
+
+.zero { grid-column: span 2; }
+
+.bottom-btn {
+    margin-top: 10px;
+    width: 100%;
+    background: #ffd6e0;
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- KALKULATOR -->
+<div class="page active" id="calcPage">
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+
+        <div class="buttons">
+            <button onclick="clearDisplay()" class="clear">C</button>
+            <button onclick="append('%')" class="operator">%</button>
+            <button onclick="append('÷')" class="operator">÷</button>
+            <button onclick="backspace()">⌫</button>
+
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('+')" class="operator">+</button>
+
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('-')" class="operator">-</button>
+
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('*')" class="operator">×</button>
+
+            <button onclick="append('0')" class="zero">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+
+        <button class="bottom-btn" onclick="showHistory()">Riwayat</button>
+    </div>
+</div>
+
+<!-- RIWAYAT -->
+<div class="page" id="historyPage">
+    <div class="history-page">
+        <h3>Riwayat</h3>
+        <div class="history-list" id="historyList"></div>
+        <button class="bottom-btn" onclick="showCalc()">Kembali</button>
+    </div>
+</div>
+
+</div>
+
+<script>
+let display = document.getElementById('display');
+let historyList = document.getElementById('historyList');
+
+/* APPEND PINTAR */
+function append(value){
+    let operators=['+','-','*','÷','%'];
+    let lastChar=display.innerText.slice(-1);
+
+    if(operators.includes(value)){
+        if(operators.includes(lastChar)){
+            display.innerText=display.innerText.slice(0,-1)+value;
+        }else{
+            display.innerText+=value;
+        }
+    }else{
+        if(display.innerText==='0'){
+            display.innerText=value;
+        }else{
+            display.innerText+=value;
+        }
+    }
+}
+
+function clearDisplay(){ display.innerText='0'; }
+
+function backspace(){
+    display.innerText = display.innerText.slice(0,-1) || '0';
+}
+
+function calculate(){
+    try{
+        let expression=display.innerText.replace(/÷/g,'/');
+        let result=eval(expression);
+
+        let item=document.createElement("div");
+        item.innerText=display.innerText + " = " + result;
+        historyList.appendChild(item);
+
+        display.innerText=result;
+    }catch{
+        display.innerText='Error';
+    }
+}
+
+/* NAVIGASI */
+function showHistory(){
+    document.getElementById('calcPage').classList.remove('active');
+    document.getElementById('historyPage').classList.add('active');
+}
+
+function showCalc(){
+    document.getElementById('historyPage').classList.remove('active');
+    document.getElementById('calcPage').classList.add('active');
+}
+</script>
+
+</body>
+</html>
