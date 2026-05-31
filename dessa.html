@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Website Desa Bawang</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Chart JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Segoe UI', sans-serif;
+      overflow-x:hidden;
+
+      background:
+      linear-gradient(
+        rgba(255,255,255,0.90),
+        rgba(255,255,255,0.90)
+      ),
+      url('Waduk-Mrica-Banjarnegara.jpg');
+
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar-custom{
+      background:rgba(25,135,84,0.95);
+      backdrop-filter:blur(10px);
+
+      padding:10px 25px;
+
+      box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand{
+      color:white !important;
+      text-decoration:none;
+    }
+
+    .logo-desa{
+      width:45px;
+      height:45px;
+      object-fit:contain;
+      background:white;
+      border-radius:12px;
+      padding:4px;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .brand-text span{
+      color:white;
+
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .navbar-nav{
+      display:flex;
+      flex-direction:row;
+      gap:10px;
+
+      margin-left:auto;
+
+      overflow-x:auto;
+    }
+
+    .navbar-nav::-webkit-scrollbar{
+      display:none;
+    }
+
+    .nav-link{
+      color:white !important;
+
+      font-size:13px;
+      font-weight:500;
+
+      padding:6px 12px !important;
+
+      border-radius:30px;
+
+      white-space:nowrap;
+
+      transition:0.3s;
+    }
+
+    .nav-link:hover{
+      background:white;
+      color:#198754 !important;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:20px;
+
+      background:
+      linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+      ),
+      url('Waduk-Mrica-Banjarnegara.jpg');
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content{
+      animation:fadeUp 1s ease;
+    }
+
+    .welcome-text{
+      color:#ffffff;
+
+      font-size:20px;
+
+      letter-spacing:4px;
+
+      margin-bottom:15px;
+
+      font-weight:600;
+    }
+
+    .hero h1{
+      color:white;
+
+      font-size:65px;
+      font-weight:bold;
+
+      margin-bottom:20px;
+
+      text-shadow:0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .hero p{
+      color:white;
+
+      font-size:20px;
+
+      margin-bottom:35px;
+    }
+
+    .hero button{
+      border:none;
+
+      padding:13px 40px;
+
+      border-radius:50px;
+
+      background:#198754;
+      color:white;
+
+      font-size:17px;
+      font-weight:bold;
+
+      transition:0.3s;
+
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero button:hover{
+      background:#157347;
+
+      transform:
+      translateY(-3px)
+      scale(1.03);
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+
+      font-size:40px;
+      font-weight:bold;
+
+      color:#198754;
+
+      margin-bottom:45px;
+
+      position:relative;
+    }
+
+    .section-title::after{
+      content:'';
+
+      width:90px;
+      height:4px;
+
+      background:#198754;
+
+      display:block;
+
+      margin:12px auto 0;
+
+      border-radius:10px;
+    }
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card-custom{
+      background:rgba(255,255,255,0.95);
+
+      padding:35px;
+
+      border-radius:25px;
+
+      backdrop-filter:blur(6px);
+
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+      transition:0.4s;
+    }
+
+    .card-custom:hover{
+      transform:translateY(-8px);
+    }
+
+    .card-custom p,
+    .card-custom li{
+      color:#444;
+
+      font-size:16px;
+      line-height:1.8;
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery img{
+      width: 100%;
+      height: 200px;
+
+      object-fit:cover;
+
+      border-radius:20px;
+
+      transition:0.4s;
+
+      box-shadow:0 16px 25px rgba(0,0,0,0.12);
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    /* =========================
+   FOTO BATAS WILAYAH
+        ========================= */
+
+        .profil-wrapper{
+          display:flex;
+          gap:30px;
+          align-items:flex-start;
+          flex-wrap:wrap;
+        }
+
+        .profil-text{
+          flex:1;
+          min-width:300px;
+        }
+
+        .batas-wilayah{
+          width:350px;
+        }
+
+        .batas-wilayah img{
+          width:100%;
+          height:420px;
+          object-fit:cover;
+
+          border-radius:25px;
+
+          box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+          border:5px solid #198754;
+        }
+
+        .batas-caption{
+          margin-top:15px;
+
+          background:#198754;
+          color:white;
+
+          padding:15px;
+
+          border-radius:20px;
+
+          font-size:15px;
+          line-height:1.7;
+        }
+
+   /* /* =========================
+          STRUKTUR ORGANISASI
+        ========================= */
+
+        .org-scroll{
+          overflow-x:auto;
+          padding-bottom:15px;
+        }
+
+        .org-scroll::-webkit-scrollbar{
+          height:8px;
+        }
+
+        .org-scroll::-webkit-scrollbar-thumb{
+          background:#198754;
+          border-radius:20px;
+        }
+
+        .org-row{
+          display:flex;
+          gap:25px;
+          min-width:max-content;
+          justify-content:center;
+        }
+
+        /* CARD ORGANISASI */
+
+        .org-card{
+          min-width:280px;
+
+          background:white;
+
+          padding:35px 25px;
+
+          border-radius:40px;
+
+          text-align:center;
+
+          box-shadow:0 10px 30px rgba(0,0,0,0.10);
+
+          transition:0.3s;
+        }
+
+        .org-card:hover{
+          transform:translateY(-8px);
+        }
+
+        /* FOTO */
+
+        .org-img{
+          width:180px;
+          height:180px;
+
+          object-fit:cover;
+
+          border-radius:35px;
+
+          border:6px solid #198754;
+
+          margin-bottom:20px;
+
+          box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* TEXT */
+
+        .org-card h5{
+          color:#198754;
+          font-weight:bold;
+          margin-bottom:10px;
+          font-size:22px;
+        }
+
+        .org-card p{
+          font-size:16px;
+          color:#555;
+        }
+
+        /* =========================
+          UMKM
+        ========================= */
+
+        .umkm-card{
+          background:white;
+          border-radius:25px;
+          overflow:hidden;
+          box-shadow:0 10px 25px rgba(0,0,0,0.10);
+          transition:0.3s;
+          height:100%;
+        }
+
+        .umkm-card:hover{
+          transform:translateY(-8px);
+        }
+
+        .umkm-card img{
+          width:100%;
+          height:220px;
+          object-fit:cover;
+        }
+
+        .umkm-content{
+          padding:20px;
+        }
+
+        .umkm-content h5{
+          color:#198754;
+          font-weight:bold;
+          margin-bottom:10px;
+        }
+
+        .umkm-content p{
+          font-size:15px;
+          color:#555;
+          line-height:1.7;
+        }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      background:#198754;
+      color:white;
+
+      text-align:center;
+
+      padding:22px;
+
+      margin-top:50px;
+
+      font-size:15px;
+    }
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:991px){
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+
+      .navbar-custom{
+        padding:10px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .hero button{
+        padding:10px 30px;
+        font-size:15px;
+      }
+
+      .card-custom{
+        padding:25px;
+      }
+
+      .welcome-text{
+        font-size:15px;
+      }
+
+    }
+
+    /* =========================
+   GALERI SCROLL
+========================= */
+
+.gallery-scroll{
+  display:flex;
+  gap:20px;
+
+  overflow-x:auto;
+
+  padding:10px 5px 20px;
+
+  scroll-behavior:smooth;
+}
+
+.gallery-scroll::-webkit-scrollbar{
+  height:8px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb{
+  background:#198754;
+  border-radius:20px;
+}
+
+.gallery-item{
+  min-width:300px;
+  flex-shrink:0;
+}
+
+.gallery-item img{
+  width:100%;
+  height:220px;
+
+  object-fit:cover;
+
+  border-radius:20px;
+
+  transition:0.4s;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.gallery-item img:hover{
+  transform:scale(1.04);
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HALAMAN AWAL
+  ========================== -->
+
+  <section id="homePage">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-dark navbar-custom sticky-top">
+
+    <div class="container-fluid d-flex align-items-center">
+
+    <a class="navbar-brand d-flex align-items-center gap-2 me-4" href="#">
+
+          <!-- GANTI logo.png DENGAN LOGO KAMU -->
+          <img
+            src="logobaru.jpeg"
+            alt="Logo Desa"
+            class="logo-desa"
+          >
+
+          <div class="brand-text">
+            <span>Desa Bawang</span>
+            <span>Kab. Banjarnegara</span>
+          </div>
+
+        </a>
+
+      </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+      <div class="hero-content">
+
+        
+        <h1>
+          DESA BAWANG
+        </span>
+
+        <p>
+           Selamat Datang di Website Desa Bawang
+        </p>
+
+        <button onclick="openMainPage()">
+          Jelajahi Desa
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       HALAMAN KONTEN
+  ========================== -->
+
+  <section
+    id="mainContent"
+    style="display:none; padding-top:0;"
+  >
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-dark navbar-custom fixed-top">
+
+      <div class="container-fluid">
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+
+          <img
+            src="logobaru.jpeg"
+            alt="Logo Desa"
+            class="logo-desa">
+
+          <div class="brand-text">
+            <span>Desa Bawang</span>
+            <span><h6>Kabupaten Banjarnegara</h6></span>
+          </div>
+
+        </a>
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#profil">
+              Profil
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#sejarah">
+              Sejarah
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#visi">
+              Visi Misi
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#statistik">
+              Statistik
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#galeri">
+              Galeri
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#organisasi">
+              Organisasi
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#umkm">
+              UMKM
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+
+    <!-- =========================
+         PROFIL
+    ========================== -->
+
+    <section
+      class="container"
+      id="profil"
+    >
+
+      <h2 class="section-title">
+        Profil Desa
+      </h2>
+
+      <div class="card-custom">
+
+  <div class="profil-wrapper">
+
+    <!-- TEXT -->
+<div class="profil-text">
+
+  <h3 class="mb-4 text-success fw-bold">
+    Desa Bawang
+  </h3>
+
+  <p>
+    Desa Bawang merupakan salah satu dari 18 desa/kelurahan yang berada
+    di Kecamatan Bawang, Kabupaten Banjarnegara, Provinsi Jawa Tengah.
+    Desa ini juga menjadi pusat pemerintahan Kecamatan Bawang.
+  </p>
+
+  <h5 class="mt-4 mb-3 fw-bold">
+    Lokasi Administrasi & Kontak Kantor
+  </h5>
+
+  <p class="mb-2">
+    Jalan KH. Busro RT 05 RW 05,
+    Desa Bawang, Kecamatan Bawang.
+  </p>
+
+  <p class="mb-2">
+    Kode Pos : 53471
+  </p>
+
+  <p class="mb-3">
+    Situs Resmi :
+    <a href="https://desabawang.id/" target="_blank">
+      Website Resmi Desa Bawang
+    </a>
+  </p>
+
+  <p>
+    Desa Bawang berada di area strategis dan dikelilingi beberapa desa
+    seperti Bandingan, Binorong, Blambangan, Depok,
+    Gemuruh, dan Mantrianom.
+  </p>
+
+</div>
+
+    <!-- FOTO BATAS WILAYAH -->
+
+    <div class="batas-wilayah">
+
+      <img src="batas batas.png">
+
+      
+    </div>
+
+  </div>
+
+</div>
+
+    </section>
+
+    <!-- =========================
+         SEJARAH
+    ========================== -->
+
+    <section
+      class="container"
+      id="sejarah"
+    >
+
+      <h2 class="section-title">
+        Sejarah Desa
+      </h2>
+
+      <div class="card-custom">
+
+        <p>
+            Sejarah telah mencatat bahwa Pulau Lombok pernah menjadi wilayah kekuasaan Kerajaan Karang Asem Bali 
+            yang berkedudukan di Cakranegara dengan seorang raja bernama Anak Agung Gde Jelantik. Berakhirnya 
+            <b>kekuasaan Kerajaan</b> Karang Asem Bali di Pulau Lombok setelah datangnya Belanda pada Tahun 1891, dimana 
+            Belanda pada waktu itu ingin menguasai Pulau Lombok dengan dalih pura-pura membantu rakyat Lombok yang 
+            dianggap tertindas oleh Pemerintahan Raja Lombok yaitu Anak Agung Gede Jelantik.
+            
+            Pada masa kekuasaan Raja Lombok yaitu Anak Agung Gde Jelantik, wilayah Desa Senggigi ( Dusun Mangsit, 
+            Kerandangan, Senggigi dan Dusun Loco) masih bergabung dengan Desa Senteluk yang sekarang menjadi Desa Meninting . 
+            Sedangkan pada tahun 1962 Desa Senteluk pecah menjadi 2 (Dua) desa yaitu Desa Meninting dan Desa Batulayar dan 
+            Dusun Mangsit,Kerandangan,Senggigi dan Dusun Loco bergabung ke Desa Batulayar.
+
+            Pemberian nama Desa Batulayar pada waktu itu yang lazim disebut dengan Pemusungan/Kepala Dea Batulayar 
+            berdasarkan hasil musyawarah nama Batulayar diambil dari nama tempat yang amat terkenal yaitu Makam Batulayar
+            yang sampai saat ini banyak dikunjungi oleh masyarakat Pulau Lombok pada khususnya dan Masyarakat Nusa Tenggara Barat pada umumnya.
+
+            Pada tahun 2001 Desa Batulayar dimekarkan menjadi 2 (dua) yaitu Desa Batulayar (sebagai Desa Induk) 
+            dan Desa Senggigi (sebagai Desa Persiapan) dengan SK.Bupati No : 30 Tahun 2001 tanggal 17 Mei 2001, yang pada waktu itu 
+            yang menjadi pejabat <b>Kepala Desa Senggigi ialah H. ARIF RAHMAN, S.IP.</b>, dengan jumlah dusun sebanyak 3 dusun, yaitu : 
+
+           
+            <p>1. Dusun Senggigi</p>
+            <p>2. Dusun Kerandangan</p>
+            <p> 3. Dusun Mangsit </p>
+
+            Selanjutnya pada tanggal 30 Juli 2003 Pejabat Kepala Desa <b>Senggigi dari H. ARIF RAHMAN, S.IP</b> diganti oleh 
+            <b>audara ARIFIN</b> dengan SK. Bupati Lombok Barat No : 409/66/pem/2003. Berhubung Desa Senggigi masih bersifat Desa Persiapan, maka 
+            berdasarkan hasil musyawarah desa, tertanggal 15 Desember 2003 , maka pada tanggal 22 Desember 2003 Desa Senggigi mengadakan Pemilihan 
+            Kepala Desa devinitif yang pertama kali dipimpin oleh <b>HAJI JUNAIDI</b> terpilih dengan SK. Bupati Lombok Barat No :01/01/Pem/2004 tertanggal 
+            2 Januari 2004 sampai pada tahun 2008. 
+
+            Selanjutnya pada tahun 2008, Desa Senggigi mengadakan pemilihan Kepala Desa Senggigi yang kedua dan dimenangkan oleh Bapak <b>H. MUTAKIR AHMAD </b>
+            dengan SK. Bupati Lombok Barat No :1320/48/Pem./2008 tertanggal 23 Desember 2008, Periode 2008-2014.  Kemudian Kepala desa terpilih Periode 
+            2015 s/d 2021 adalah <b>MUHAMMAD ILHAM</b> dengan SK. Bupati Lombok Barat No : 160/04/BPMPD/15 tanggal 27 Januari 2015 kini baru menjabat 2 (dua) bulan.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         VISI MISI
+    ========================== -->
+
+    <section
+      class="container"
+      id="visi"
+    >
+
+      <h2 class="section-title">
+        Visi & Misi
+      </h2>
+
+      <div class="card-custom">
+
+        <h4 class="mb-3 text-success">
+          Visi
+        </h4>
+
+        <p>
+         Terwujudnya Desa Bawang yang mandiri, Beriman, mampu dalam pengelolaan potensi Desa dan 
+         Pemabangunan berkelanjutan untuk mewujudkan masyarakat yang sejahtera, berkualitas, berbudaya, 
+         maju, adil, demokrasi dan peduli terhadap lingkungan dengan landasan Pancasila dan UUd 1945
+        </p>
+
+        <h4 class="mt-4 mb-3 text-success">
+          Misi
+        </h4>
+
+        <ul>
+
+            <li>Mewujudkan tata kelola pemerintahan yang baik</li>
+            <li>Meningkatkan kualitas SDM masyarakat</li>
+            <li>Meningkatkan partisipasi bagi semua lapisan masyarakat dalam pembangunan</li>          
+            <li>Mengembangkan Teknologi Informasi Pembangunan Infrastruktur , sarana dan prasarana Desa</li> 
+            <li> Mengembangkan seluruh potensi desa</li>
+            <li>Melestarikan kearifan lokal</li>
+            <li>Meningkatkan kualitas lingkungan pemukiman</li>
+            <li>Meningkatkan kualitas dan membangun kesadaran kesehatan masyarakat </li>
+            <li>Membangun kerjasama dan kemitraan strategis </li>
+            <li> Mengembangkan kegiatan keagamaan</li>
+            <li>Pengelolaan Tambahan Tunjangan</li>
+
+          
+        </ul>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         STATISTIK
+    ========================== -->
+
+    <section
+      class="container"
+      id="statistik"
+    >
+
+      <h2 class="section-title">
+        Statistik Penduduk
+      </h2>
+
+      <div class="text-center mb-4">
+
+        <button
+          class="btn btn-success btn-sm m-1"
+          onclick="showChart('Jumlah')"
+        >
+          Jumlah
+        </button>
+
+        <button
+          class="btn btn-success btn-sm m-1"
+          onclick="showChart('pendidikan')"
+        >
+          Pendidikan
+        </button>
+
+        <button
+          class="btn btn-success btn-sm m-1"
+          onclick="showChart('pekerjaan')"
+        >
+          Pekerjaan
+        </button>
+
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+          <div class="card-custom">
+
+            <canvas id="mainChart"></canvas>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         GALERI
+    ========================== -->
+
+    <section
+      class="container"
+      id="galeri"
+    >
+
+      <h2 class="section-title">
+        Galeri Desa
+      </h2>
+
+      <div class="gallery-scroll">
+
+  <div class="gallery-item">
+    <img src="galeri1.png">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri2.png">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri3.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri4.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri5.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri6.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri7.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri8.jpg">
+  </div>
+
+  <div class="gallery-item">
+    <img src="galeri9.jpg">
+  </div>
+
+</div>
+    </section>
+
+ 
+
+    <!-- =========================
+        ORGANISASI
+    ========================== -->
+
+    <section class="container" id="organisasi">
+
+      <h2 class="section-title">
+        Struktur Organisasi
+      </h2>
+
+      <!-- KEPALA DESA -->
+
+      <div class="text-center mb-5">
+
+        <div class="org-card mx-auto" style="max-width:300px;">
+
+          <img
+            src="kepala desa.jpg"
+            class="org-img"
+          >
+
+          <h5>Kepala Desa</h5>
+          <p class="mb-0">Galih Purwandaru</p>
+
+        </div>
+
+      </div>
+
+      <!-- BARIS 2 -->
+
+      <div class="org-scroll mb-5">
+
+        <div class="org-row">
+
+          <!-- SEKDES -->
+
+          <div class="org-card">
+
+            <img
+              src="sekre.jpg"
+              class="org-img"
+            >
+
+            <h5>Sekretaris Desa</h5>
+            <p class="mb-0">Nurkhyati</p>
+
+          </div>
+
+          <!-- KAUR KEUANGAN -->
+
+          <div class="org-card">
+
+            <img
+              src="kaurkeuangan.jpg"
+              class="org-img"
+            >
+
+            <h5>Kaur Keuangan</h5>
+            <p class="mb-0">Agin Selfian D. S.T</p>
+
+          </div>
+
+          <!-- KAUR PERENCANAAN -->
+
+          <div class="org-card">
+
+            <img
+              src="kaurperencanaan.jpg"
+              class="org-img"
+            >
+
+            <h5>Kaur Perencanaan</h5>
+            <p class="mb-0">Shinta Fatwa Utami</p>
+
+          </div>
+
+          <!-- KAUR TU -->
+
+          <div class="org-card">
+
+            <img
+              src="kaurtatausaha.jpg"
+              class="org-img"
+            >
+
+            <h5>Kaur Tata Usaha & Umum</h5>
+            <p class="mb-0">Sya'bani Agung P. S.T</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BARIS 3 -->
+
+      <div class="org-scroll mb-5">
+
+        <div class="org-row">
+
+          <!-- KASIE KESRA -->
+
+          <div class="org-card">
+
+            <img
+              src="kasiekesejahteraan.jpg"
+              class="org-img"
+            >
+
+            <h5>Kasie Kesejahteraan Rakyat</h5>
+            <p class="mb-0">Nuhadi</p>
+
+          </div>
+
+          <!-- KASIE PEMERINTAHAN -->
+
+          <div class="org-card">
+
+            <img
+              src="kasiepemerintahanjpg.jpg"
+              class="org-img"
+            >
+
+            <h5>Kasie Pemerintahan</h5>
+            <p class="mb-0">Yuli Setyowati A.Md</p>
+
+          </div>
+
+          <!-- KASIE PELAYANAN -->
+
+          <div class="org-card">
+
+            <img
+              src="kasiepelayanana.jpg"
+              class="org-img"
+            >
+
+            <h5>Kasie Pelayanan</h5>
+            <p class="mb-0">Saefulloh Rohmanudin A.Md</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BARIS 4 -->
+
+      <div class="org-scroll">
+
+        <div class="org-row">
+
+          <!-- KADUS 1 -->
+
+          <div class="org-card">
+
+            <img
+              src="kadustegalrejo.jpg"
+              class="org-img"
+            >
+
+            <h5>Kepala Dusun I Tegalrejo</h5>
+            <p class="mb-0">Afif Nurdin</p>
+
+          </div>
+
+          <!-- KADUS 2 -->
+
+          <div class="org-card">
+
+            <img
+              src="kadusmrica.jpg"
+              class="org-img"
+            >
+
+            <h5>Kepala Dusun II Mrica</h5>
+            <p class="mb-0">Didi Akbar K. A.Md</p>
+
+          </div>
+
+          <!-- KADUS 3 -->
+
+          <div class="org-card">
+
+            <img
+              src="kadusdanakerta.jpg"
+              class="org-img"
+            >
+
+            <h5>Kepala Dusun III Danakerta</h5>
+            <p class="mb-0">Satria Rimba Perkasa</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+   <!-- =========================
+          UMKM
+      ========================== -->
+
+      <section class="container" id="umkm">
+
+        <h2 class="section-title">
+          Informasi UMKM
+        </h2>
+
+        <div class="row g-4">
+
+          <!-- UMKM 1 -->
+
+          <div class="col-md-4">
+
+            <div class="umkm-card">
+
+              <img src="umkm1.jpg">
+
+              <div class="umkm-content">
+
+                <h5>Tepung Mocaf</h5>
+
+                <p>
+                  Olahan singkong fermentasi ini menjadi produk unggulan desa. Diproduksi massal 
+                  oleh warga setempat, tepung ini bahkan telah diekspor dan dipamerkan di ajang 
+                  internasional seperti Malaysia International Halal Showcase (Mihas).
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- UMKM 2 -->
+
+          <div class="col-md-4">
+
+            <div class="umkm-card">
+
+              <img src="umkm2.jpg">
+
+              <div class="umkm-content">
+
+                <h5>Peyek</h5>
+
+                <p>
+                  usaha makanan ringan yang memproduksi peyek renyah dengan cita rasa gurih khas Indonesia. 
+                  Dibuat dari bahan sederhana seperti tepung beras dan kacang/kedelai/ebi/cabai/dll, produk ini cocok sebagai 
+                  camilan sehari-hari dan memiliki potensi pasar yang luas karena disukai berbagai kalangan.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- UMKM 3 -->
+
+          <div class="col-md-4">
+
+            <div class="umkm-card">
+
+              <img src="umkm3.jpg">
+
+              <div class="umkm-content">
+
+                <h5>Tahu</h5>
+
+                <p>
+                  Usaha yang bergerak di bidang produksi makanan berbahan dasar kedelai. Produk tahu yang 
+                  dihasilkan memiliki tekstur lembut, rasa gurih, dan kaya protein sehingga cocok untuk berbagai 
+                  olahan masakan sehari-hari. Usaha ini memiliki pasar yang stabil karena tahu merupakan bahan 
+                  makanan yang banyak dikonsumsi masyarakat
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+    <!-- FOOTER -->
+
+    <footer>
+      © 2026 Website Desa Bawang
+    </footer>
+
+  </section>
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    function openMainPage(){
+
+      document.getElementById("homePage").style.display = "none";
+
+      document.getElementById("mainContent").style.display = "block";
+
+      window.scrollTo(0,0);
+
+    }
+
+    function backHome(){
+
+      document.getElementById("homePage").style.display = "block";
+
+      document.getElementById("mainContent").style.display = "none";
+
+      window.scrollTo(0,0);
+
+    }
+
+    let chart;
+
+    function showChart(type){
+
+      const ctx =
+      document.getElementById('mainChart');
+
+      if(chart){
+        chart.destroy();
+      }
+
+      /* =========================
+         DATA Jumlah
+      ========================== */
+
+      if(type === 'Jumlah'){
+
+        chart = new Chart(ctx, {
+
+          type:'pie',
+
+          data:{
+
+            labels:[
+              'Perempuan',
+              'Laki-laki',
+              'Kepala Keluarga',
+              'Total'
+            ],
+
+            datasets:[{
+
+              data:[2181,2236,1435,4417],
+
+              backgroundColor:[
+                '#FDB0C0',
+                '#90D5FF',
+                '#90EE90',
+                '#DDA0DD'
+              ]
+
+            }]
+
+          }
+
+        });
+
+      }
+
+      /* =========================
+         DATA PENDIDIKAN
+      ========================== */
+
+      if(type === 'pendidikan'){
+
+        chart = new Chart(ctx, {
+
+          type:'pie',
+
+          data:{
+
+            labels:[
+              'Tamat SD',
+              'Tidak Tamat SD',
+              'Tamat SLTP',
+              'Tidak Tamat SLTP',
+              'Tamat SLTA',
+              'Tidak Tamat SLTA',
+              'Tamat D1 - D3',
+              'Tamat Sarjana (S1)',
+              'Tamat Pasca Sarjana(S2)',
+              'Tamat S3',
+              'Tamat SLB A',
+              'Tamat SLB B',
+              'Tamat SLB C'
+            ],
+
+            datasets:[{
+
+              label:'Jumlah',
+
+              data:[158, 158, 795, 371, 1082, 24, 162, 249, 22, 3, 3, 0, 1],
+
+              backgroundColor:[
+                '#E5989B', // Tamat SD
+                '#F6BD60', // Tidak Tamat SD
+                '#84A59D', // Tamat SLTP
+                '#90CAF9', // Tidak Tamat SLTP
+                '#B8B8D1', // Tamat SLTA
+                '#CDB4DB', // Tidak Tamat SLTA
+                '#FFB4A2', // Tamat D1-D3
+                '#A8D5BA', // Tamat Sarjana S1
+                '#D4A5A5', // Tamat Pasca Sarjana S2
+                '#9BF6FF', // Tamat S3
+                '#BDB2FF', // Tamat SLB A
+                '#FFD6A5', // Tamat SLB B
+                '#A0C4FF'  // Tamat SLB C
+              ]
+            }]
+
+          }
+
+        });
+
+      }
+
+      /* =========================
+         DATA PEKERJAAN
+      ========================== */
+
+      if(type === 'pekerjaan'){
+
+        chart = new Chart(ctx, {
+
+          type:'doughnut',
+
+          data:{
+
+            labels:[
+              'Belum/Tidak Bekerja',
+              'Mengurus Rumah Tangga',
+              'Pelajar/Mahasiswa',
+              'Pensiunan',
+              'Pegawai Negeri Sipil (PNS)',
+              'TNI',
+              'POLRI',
+              'Pedagang',
+              'Petani/Pekebun',
+              'Peternak',
+              'Konstruksi',
+              'Transportasi',
+              'Karyawan Swasta',
+              'Karyawan BUMN',
+              'Karyawan Honorer',
+              'Buruh Harian Lepas',
+              'Buruh Tani/Perkebunan',
+              'Buruh Peternakan',
+              'Pembantu Rumah Tangga',
+              'Tukang Batu',
+              'Tukang Kayu',
+              'Tukang Jahit',
+              'Mekanik',
+              'Anggota DPR-RI',
+              'Dosen',
+              'Guru',
+              'Bidan',
+              'Perawat',
+              'Sopir',
+              'Pedangang',
+              'Perangkat Desa',
+              'Wiraswasta',
+              'Belum Mengisi'
+            ],
+
+            datasets:[{
+
+              data:[275,237,175,7,12,1,1,6,35,5,1,5,
+              112,3,1,101,37,5,5,9,7,6,3,1,1,17,1,2,
+              7,40,7,34,925],
+
+              backgroundColor: [
+          '#95a5a6', // Belum/Tidak Bekerja
+          '#f7c6c7', // Mengurus Rumah Tangga
+          '#74b9ff', // Pelajar/Mahasiswa
+          '#dfe6e9', // Pensiunan
+          '#3498db', // PNS
+          '#2c3e50', // TNI
+          '#34495e', // POLRI
+          '#f39c12', // Pedagang
+          '#27ae60', // Petani/Pekebun
+          '#58d68d', // Peternak
+          '#ca6f1e', // Konstruksi
+          '#5dade2', // Transportasi
+          '#8e44ad', // Karyawan Swasta
+          '#1f618d', // Karyawan BUMN
+          '#bb8fce', // Karyawan Honorer
+          '#d35400', // Buruh Harian Lepas
+          '#7d6608', // Buruh Tani/Perkebunan
+          '#52be80', // Buruh Peternakan
+          '#f5b7b1', // Pembantu Rumah Tangga
+          '#a04000', // Tukang Batu
+          '#8d6e63', // Tukang Kayu
+          '#fd79a8', // Tukang Jahit
+          '#636e72', // Mekanik
+          '#e84393', // Anggota DPR-RI
+          '#6c5ce7', // Dosen
+          '#00cec9', // Guru
+          '#ff7675', // Bidan
+          '#fab1a0', // Perawat
+          '#0984e3', // Sopir
+          '#e17055', // Pedagang
+          '#16a085', // Perangkat Desa
+          '#9b59b6', // Wiraswasta
+          '#b2bec3'  // Belum Mengisi
+        ]
+
+            }]
+
+          }
+
+        });
+
+      }
+
+    }
+
+    showChart('usia');
+
+  </script>
+
+</body>
+</html>
